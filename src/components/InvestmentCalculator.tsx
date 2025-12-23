@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Calendar, TrendingUp, DollarSign } from 'lucide-react';
 
@@ -315,7 +315,7 @@ export default function InvestmentCalculator() {
       }
     };
     
-    const { rate, inflation, shieldInflation } = getConfig();
+    const { rate, shieldInflation } = getConfig();
     const periods = projectionDuration;
     let previousProfit = 0;  // Track previous year's profit for "Double Down" strategy
     
@@ -344,7 +344,6 @@ export default function InvestmentCalculator() {
       
       const startValue = balance;
       
-      const profit = startValue * rate;
       let newCash = 0;
       let cashOut = 0;
       let endValue = 0;
